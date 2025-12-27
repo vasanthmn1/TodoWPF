@@ -1,0 +1,65 @@
+<Page x:Class="Todo.Views.AddTodoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Add Todo">
+    <Grid Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Add New Todo" FontSize="28" FontWeight="Bold" 
+                   Foreground="#333" Margin="0,0,0,30"/>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <TextBlock Text="Title *" FontSize="14" FontWeight="SemiBold" 
+                       Foreground="#666" Margin="0,0,0,8"/>
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" 
+                     Height="40" Padding="10" FontSize="14"
+                     BorderBrush="#DDD" BorderThickness="1"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,20">
+            <TextBlock Text="Description" FontSize="14" FontWeight="SemiBold" 
+                       Foreground="#666" Margin="0,0,0,8"/>
+            <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
+                     Height="120" Padding="10" FontSize="14"
+                     BorderBrush="#DDD" BorderThickness="1"
+                     TextWrapping="Wrap" AcceptsReturn="True" 
+                     VerticalScrollBarVisibility="Auto"/>
+        </StackPanel>
+
+        <Button Grid.Row="4" Content="Add Todo" Command="{Binding AddTodoCommand}"
+                Width="200" HorizontalAlignment="Left"
+                Background="#4CAF50" Foreground="White" FontSize="16" FontWeight="Bold"
+                BorderThickness="0" Cursor="Hand" Margin="68,6,0,5" Click="Button_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="5" Padding="15">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#45a049"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="#CCC"/>
+                            <Setter Property="Cursor" Value="Arrow"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>
