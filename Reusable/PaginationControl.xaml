@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Todo.Reusable.PaginationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+        <!-- Previous -->
+        <Button x:Name="PrevBtn"
+                Content="Previous"
+                Margin="5"
+                Click="Previous_Click"/>
+
+        <!-- Page Numbers -->
+        <ItemsControl x:Name="PageItems">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <!-- Next -->
+        <Button x:Name="NextBtn"
+                Content="Next"
+                Margin="5"
+                Click="Next_Click"/>
+
+    </StackPanel>
+</UserControl>
