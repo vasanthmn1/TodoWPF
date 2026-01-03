@@ -1,7 +1,8 @@
 <Window x:Class="Todo.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:reusable="clr-namespace:Todo.Reusable"
+        xmlns:reusablee="clr-namespace:Todo.Reusable"
+	   xmlns:local="clr-namespace:Todo.Reusable.Ui"
         Title="Todo Pagination"
         Height="420"
         Width="520">
@@ -24,8 +25,15 @@
 			</ListView.View>
 		</ListView>
 
-		<reusable:PaginationControl x:Name="Pager"
+        <reusablee:PaginationControl x:Name="Pager"
                                     Grid.Row="1"
                                     Margin="0,10,0,0"/>
-	</Grid>
+        <Grid>
+            <!-- Your content here -->
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:LoadingSpinner Visibility="Visible"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
 </Window>

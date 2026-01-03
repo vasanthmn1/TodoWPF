@@ -14,13 +14,11 @@ namespace Todo.Views
         public MainWindow()
         {
             InitializeComponent();
-
             LoadDummyData();
-
             Pager.Initialize(totalCount: _allTodos.Count, pageLimit: PageSize);
             Pager.PageChanged += OnPageChanged;
 
-            LoadPage(1);
+            LoadPage(1);    
         }
 
         private void LoadDummyData()
